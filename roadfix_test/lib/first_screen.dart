@@ -218,40 +218,45 @@ class _FirstScreenState extends State<FirstScreen> {
                     : MediaQuery.removePadding(
                         context: context,
                         removeTop: true,
-                        child: ListView.builder(
-                            itemCount: myList.length,
-                            shrinkWrap: true,
-                            scrollDirection: Axis.vertical,
-                            itemBuilder: (context, position) {
-                              return InkWell(
-                                borderRadius: BorderRadius.circular(15),
-                                onTap: () =>
-                                    setState(() => selectedIndex = position),
-                                child: Card(
-                                    color: (selectedIndex == position)
-                                        ? const Color.fromARGB(
-                                            255, 107, 179, 228)
-                                        : Colors.white,
-                                    child: Row(children: [
-                                      Container(
-                                          padding: const EdgeInsets.only(
-                                              left: 5, right: 10),
-                                          child: getCardIcon(
-                                              myList[position].type)),
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          const Padding(
-                                              padding: EdgeInsets.only(
-                                                  top: 2, bottom: 2, left: 30)),
-                                          Text(myList[position].cardNumber),
-                                          Text(myList[position].expDate)
-                                        ],
-                                      )
-                                    ])),
-                              );
-                            }),
+                        child: Container(
+                          height: 130,
+                          child: ListView.builder(
+                              itemCount: myList.length,
+                              shrinkWrap: true,
+                              scrollDirection: Axis.vertical,
+                              itemBuilder: (context, position) {
+                                return InkWell(
+                                  borderRadius: BorderRadius.circular(15),
+                                  onTap: () =>
+                                      setState(() => selectedIndex = position),
+                                  child: Card(
+                                      color: (selectedIndex == position)
+                                          ? const Color.fromARGB(
+                                              255, 107, 179, 228)
+                                          : Colors.white,
+                                      child: Row(children: [
+                                        Container(
+                                            padding: const EdgeInsets.only(
+                                                left: 5, right: 10),
+                                            child: getCardIcon(
+                                                myList[position].type)),
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            const Padding(
+                                                padding: EdgeInsets.only(
+                                                    top: 2,
+                                                    bottom: 2,
+                                                    left: 30)),
+                                            Text(myList[position].cardNumber),
+                                            Text(myList[position].expDate)
+                                          ],
+                                        )
+                                      ])),
+                                );
+                              }),
+                        ),
                       ),
               ],
             )),
